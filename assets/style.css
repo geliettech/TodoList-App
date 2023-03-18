@@ -73,7 +73,7 @@ section .task {
   margin-top: 8px;
   margin-bottom: 12px;
 }
-section #new-task-input {
+section .new-task-input {
   padding: 0 6px;
   background: #fff;
   border-radius: 6px;
@@ -86,7 +86,7 @@ section #new-task-input {
   margin-left: 6px;
 }
 
-section #new-task-input:focus {
+section .new-task-input:focus {
   color: #333;
 }
 section .actions{

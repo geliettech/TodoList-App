@@ -4,10 +4,9 @@ const list_el = document.getElementById("incomplete-tasks");
 
 let todoList = [];
 
-add_button_el.addEventListener('submit', add_task);
+add_button_el.addEventListener('click', add_task);
 
-function add_task(e) {
-    e.preventDefult();
+function add_task() {
     const item = {
         id: new Date().getTime(),
         text: "",
@@ -15,11 +14,12 @@ function add_task(e) {
     }
     todoList.unshift(item);
 
-    const { task_el, input_el } = createTodoElement(item);
+    const {task_el, input_el} = createTodoElement(item);
 
     list_el.prepend(task_el);
 
-    input_el.removeAttribute.focus();
+    input_el.removeAttribute("disabled")
+    input_el.focus();
 
     save();
 }
@@ -28,15 +28,14 @@ function createTodoElement(item) {
     task_el.classList.add("task");
 
     const input_el = document.createElement("input");
-    input_el.setAttribute("id", "new-task-input");
-    // input_el.getAttribute("id");
+    input_el.classList.add("new-task-input");
     input_el.type = "text";
     input_el.value = item.text;
     input_el.setAttribute("disabled", "");
-    if (!input_el.value) {
-        alert("Please Fill the your task");
-        return;
-    }
+    // if (!input_el.value) {
+    //     alert("Please Fill the your task");
+    //     return;
+    // }
 
     const actions_el = document.createElement("div");
     actions_el.classList.add("actions");
@@ -56,15 +55,15 @@ function createTodoElement(item) {
     task_el.append(actions_el);
 
 
-    input_el.addEventListener('click', () => {
-        item.text = input_el;
+    input_el.addEventListener('input', () => {
+        item.text = input_el.value;
     });
 
-    // input_el.addEventListener('blur',() => {
-    //     item.text = input_el;
-    //     input_el.setAttribute("disabled", "");
-    //     save();
-    // });
+    input_el.addEventListener('blur',() => {
+        item.text = input_el;
+        input_el.setAttribute("disabled", "");
+        save();
+    });
 
     edit_btn_el.addEventListener('click', () => {
         input_el.removeAttribute("disabled")
@@ -75,9 +74,9 @@ function createTodoElement(item) {
         todoList = todoList.filter(t => t.id != item.id);
         task_el.remove();
         save();
-
-        return (task_el, input_el, edit_btn_el, delete_btn_el);
     });
+        return (task_el, input_el, edit_btn_el, delete_btn_el);
+    
 }
 
 
