@@ -8,22 +8,30 @@
     <title>TODO_List</title>
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
-
 <body>
-    <div id="myDIV" class="header">
-  <h2>My To Do List</h2>
-  <input type="text" id="myInput" placeholder="Title...">
-  <span onclick="newElement()" class="addBtn">Add</span>
-</div>
+    <div class="container">
 
-<ul id="myUL">
+        <header>
+            <h1>Create your Todo-List</h1>
+            <form action="" id="task-form">
+                <input type="text" id="task-input" placeholder="What are your tasks for today?">
+                <input type="submit" id="task-submit" value="Add">
+    
+            </form>
+        </header>
 
-  <!--<li>Hit the gym</li>
-  <li class="checked">Pay bills</li>
-  <li>Meet George</li>
-  <li>Buy eggs</li> -->
+        <main>
+            <section class="task-list">
+                
+               <div id="tasks">
+                    
+                </div>
+    
+            </section>
+        </main>
 
-  </ul>
+    </div>
+    
     <script src="./index.js"></script>
 </body>
 
