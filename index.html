@@ -10,31 +10,34 @@
 </head>
 
 <body>
-    <main>
-        <div class="container">
+    <div id="myDIV" class="header">
+  <h2>My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
 
-            <header>
-                <h2>MY TODO LIST</h2>
-                <div class="new-task-container">
-                    <h3>Add New Task</h3>
-                    <button id="add-button">Add</button>
-                </div>
-            </header>
+<ul id="myUL">
+  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul><div id="myDIV" class="header">
+  <h2>My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
 
-            <section>
-                <div id="incomplete-tasks">
-                    <!-- <div class="task">
-                        <input class="new-task-input" type="text" placeholder="What do you have planned?" disabled />
-                        <div class="actions">
-                            <button class="edit-button">Edit</button>
-                            <button class="delete-button">Delete</button>
-                        </div>
-                    </div> -->
-                </div>
-            </section>
+<ul id="myUL">
+  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul>
 
-        </div>
-    </main>
     <script src="./index.js"></script>
 </body>
 
