@@ -43,6 +43,7 @@ Submit the following:
 
 - HTML5
 - CSS3
+- JavaScript
 
 ## Setup
 
