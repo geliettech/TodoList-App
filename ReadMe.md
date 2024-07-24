@@ -10,7 +10,7 @@ This project is a simple clone of the Instagram homepage created using HTML and 
 - [Setup](#setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Inspirations](#Some design inspirations)
+- [Inspirations](#Inspirations)
 - [Resources](#Resources)
 - [License](#license)
 
