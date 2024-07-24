@@ -10,8 +10,8 @@ This project is a simple clone of the Instagram homepage created using HTML and 
 - [Setup](#setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Inspirations](#Inspirations)
-- [Resources](#Resources)
+- [Some design inspirations](#Some-design-inspirations)
+- [Some helpful resources](#Some-helpful-resources)
 - [License](#license)
 
 ## Demo
@@ -20,26 +20,29 @@ You can view the live demo of this project [here](https://oge-dev.github.io/Todo
 
 ## Features
 
+
 Create a simple todo list that has the following functionalities:
-● You can add a new item to the todo list (required)
-● You can remove an item from the todo list (required)
-● You can edit an item in the todo list (optional)
+●	You can add a new item to the todo list (required)
+●	You can remove an item from the todo list (required)
+●	You can edit an item in the todo list (optional)
 
 Some further requirements:
-● the input field must be reset when the add button is clicked on
-● prevent empty values from being added to the list
-● the todo list must show the most recently added item first on the list
-● the todo list should be stored using localStorage (see helpful resources below). So, when the page is reloaded, any item in the todo list will still be displayed on the web page.
+●	the input field must be reset when the add button is clicked on 
+●	prevent empty values from being added to the list
+●	the todo list must show the most recently added item first on the list
+●	the todo list should be stored using localStorage (see helpful resources below). So, when the page is reloaded, any item in the todo list will still be displayed on the web page.
 
 Submit the following:
-● A link to the GitHub repository containing your solution
-● A link to your solution hosted on Netlify or Github pages
+●	A link to the GitHub repository containing your solution 
+●	A link to your solution hosted on Netlify or Github pages
+
+
+
 
 ## Technologies Used
 
 - HTML5
 - CSS3
-- JavaScript
 
 ## Setup
 
@@ -92,17 +95,16 @@ Contributions are welcome! If you have any improvements or suggestions, please c
    ```
 
 6. **Create a pull request**
-
-## Inspirations
-
+## Some design inspirations
 https://ik.imagekit.io/freshman/final-app_dPFLhFnTI.gif
 https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kh657gzuo9flabph0y4a.jpg
 
-## Resources:
-
+## Some helpful resources:
 https://www.codeguage.com/courses/advanced-js/storage-localstorage
 https://www.youtube.com/watch?v=fYTTUBa-lPc
 
 ## License
 
 This project is not licensed under the MIT License. See the [LICENSE](#) file for details.
+
+
