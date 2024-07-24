@@ -1,4 +1,4 @@
-# Instagram Clone
+# To-do List Assignment
 
 This project is a simple clone of the Instagram homepage created using HTML and CSS. It aims to replicate the basic layout and design of Instagram's main interface. This project does not include any backend functionality and is purely for front-end practice.
 
@@ -10,23 +10,36 @@ This project is a simple clone of the Instagram homepage created using HTML and 
 - [Setup](#setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Inspirations](#Some design inspirations)
+- [Resources](#Resources)
 - [License](#license)
 
 ## Demo
 
-You can view the live demo of this project [here](https://oge-dev.github.io/InstagramClone/).
+You can view the live demo of this project [here](https://oge-dev.github.io/TodoList-App/).
 
 ## Features
-- Responsive design that adapts to different screen sizes
-- Basic structure and layout of the Instagram homepage
-- Header with logo and navigation icons
-- Main feed with posts
-- Sidebar with user profile and suggestions
+
+Create a simple todo list that has the following functionalities:
+● You can add a new item to the todo list (required)
+● You can remove an item from the todo list (required)
+● You can edit an item in the todo list (optional)
+
+Some further requirements:
+● the input field must be reset when the add button is clicked on
+● prevent empty values from being added to the list
+● the todo list must show the most recently added item first on the list
+● the todo list should be stored using localStorage (see helpful resources below). So, when the page is reloaded, any item in the todo list will still be displayed on the web page.
+
+Submit the following:
+● A link to the GitHub repository containing your solution
+● A link to your solution hosted on Netlify or Github pages
 
 ## Technologies Used
 
 - HTML5
 - CSS3
+- JavaScript
 
 ## Setup
 
@@ -79,6 +92,16 @@ Contributions are welcome! If you have any improvements or suggestions, please c
    ```
 
 6. **Create a pull request**
+
+## Inspirations
+
+https://ik.imagekit.io/freshman/final-app_dPFLhFnTI.gif
+https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kh657gzuo9flabph0y4a.jpg
+
+## Resources:
+
+https://www.codeguage.com/courses/advanced-js/storage-localstorage
+https://www.youtube.com/watch?v=fYTTUBa-lPc
 
 ## License
 
