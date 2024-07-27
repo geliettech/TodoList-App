@@ -1,33 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // declaration of variables
-  let Form = document.querySelector("form");
-  let Tasks = document.querySelector("#tasks");
-  let Task = document.querySelector("#task");
+  
+  // By default, add button is disabled
+  let addBtn = document.querySelector("#add-btn");
+  addBtn.disabled = true;
 
-  // By default, submit button is disabled
-  let Submit = document.querySelector("#submit");
-  Submit.disabled = true;
-
-  Task.onkeyup = () => {
-    if (Task.value.length > 0) {
-      Submit.disabled = false;
+  Input.onkeyup = () => {
+    if (Input.value.length > 0) {
+      addBtn.disabled = false;
     } else {
-      Submit.disabled = true;
+      addBtn.disabled = true;
     }
   };
-  
-  Form.onsubmit = function () {
-    const TaskValue = Task.value;
-    console.log(TaskValue);
-    const li = document.createElement("li");
-    li.innerHTML = TaskValue;
 
-    Tasks.appendChild(li);
+  Form.onsubmit = function (e) {
+    e.preventDefault(); // Prevent default form submission
 
-    Task.value = "";
+    const Li = document.createElement("li");
+    Li.innerHTML = `<input type="checkbox" name="" id=""><span>${Input.value}</span><button class="edit-btn">edit</button><button class="delete-btn">Delete</button>`;
 
-    Submit.disabled = true;
+    Tasks.appendChild(Li);
 
+    Input.value = "";
+
+    addBtn.disabled = true;
+
+    // Add event listener to delete button
+    let deleteBtn = Li.querySelector(".delete-btn");
+    deleteBtn.addEventListener("click", function () {
+      Li.remove();
+    });
     // stop form from submitting
     return false;
   };
