@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("storeTasks", JSON.stringify(storeTasks));
   };
 
-  const loadTasks = () => {
+  const loadTasksToLocalStorage = () => {
     const storeTasks = JSON.parse(localStorage.getItem("storeTasks")) || [];
     storeTasks.forEach((task) => {
       addTask(task.text);
@@ -102,5 +102,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  loadTasks();
+  loadTasksToLocalStorage();
 });
