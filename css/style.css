@@ -1,101 +1,136 @@
-*, html{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset margin, padding, and box-sizing for all elements */
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* Style the To-Do List  */
-/* Import the background image */
+
+/* Style the To-Do List */
+
+/* Set the background image for the body */
 body {
-    background: url('../img/bg-desktop.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .task-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    padding: 20px;
-    width: 96%;
-    max-width: 400px;
-    text-align: center;
-  }
-  .task-container h1 {
-    padding-bottom: 20px;
-    font-size: 2em;
-    font-weight: 500;
-    text-align: left;
-  }
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  form input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 5px 0 0 5px;
-    border: none;
-    outline: none;
-    font-size: 1em;
-  }
-  form button {
-    padding: 10px;
-    border-radius: 0 5px 5px 0;
-    border: none;
-    background-color: #1c7ed6;
-    color: white;
-    cursor: pointer;
-    font-size: 1em;
-  }
-  form button:disabled {
-    background-color: #a1caed;
-    cursor: not-allowed;
-  }
-  ul {
-    list-style-type: none;
-  }
-  ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  ul li span {
-    flex: 2;
-    padding: 0 10px;
-    text-align: left;
-  }
-  ul li input{
-    border: none;
-    outline: none; 
-    padding: 4px;
-    border-radius: 2px;
-  }
-  ul li i {
-    cursor: pointer;
-  }
-  ul li .fa-circle {
-    color: #fff;
-  }
-  ul li .fa-circle-check {
-    color: #ccc;
-  }
-  ul li .fa-trash {
-    color: #f44336;
-    margin-left: 16px;
-  }
-  
-  ul li .fa-pen-to-square {
-    color: #1c7ed6;
-  }
-  ul li .fa-floppy-disk {
-    color: #4caf50;
-  }
+  background: url("../img/bg-desktop.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Arial", sans-serif;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container for the task list */
+.task-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+  width: 96%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Header styling */
+.task-container h1 {
+  padding-bottom: 20px;
+  font-size: 2em;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Input field styling */
+form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+
+/* Button styling */
+form button {
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #1c7ed6;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* Disabled button styling */
+form button:disabled {
+  background-color: #a1caed;
+  cursor: not-allowed;
+}
+
+/* Unordered list styling */
+ul {
+  list-style-type: none;
+}
+
+/* List item styling */
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Span inside list item styling */
+ul li span {
+  flex: 2;
+  padding: 0 10px;
+  text-align: left;
+}
+
+/* Input inside list item styling */
+ul li input {
+  border: none;
+  outline: none;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+/* Icon styling */
+ul li i {
+  cursor: pointer;
+}
+
+/* Task complete icon */
+ul li .fa-circle {
+  color: #fff;
+}
+
+/* Task completed icon */
+ul li .fa-circle-check {
+  color: #ccc;
+}
+
+/* Delete icon styling */
+ul li .fa-trash {
+  color: #f44336;
+  margin-left: 16px;
+}
+
+/* Edit icon styling */
+ul li .fa-pen-to-square {
+  color: #1c7ed6;
+}
+
+/* Save icon styling */
+ul li .fa-floppy-disk {
+  color: #4caf50;
+}
