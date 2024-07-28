@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let addBtn = document.querySelector("#add-btn");
   addBtn.disabled = true;
 
-   // disabled add button when input is not empty
+  // disabled add button when input is not empty
   Input.onkeyup = () => {
     if (Input.value.length > 0) {
       addBtn.disabled = false;
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-   // Handle form submission
+  // Handle form submission
   Form.onsubmit = function (e) {
     e.preventDefault(); // Prevent page reload
     const task = Input.value;
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return false;
   };
 
-  // Handle Task Addition and Display 
+  // Handle Task Addition and Display
   const addTask = (task) => {
     const Li = document.createElement("li");
     Li.innerHTML = `<i class="fa-regular fa-circle"></i><span>${task}</span><i class="fa-solid fa-pen-to-square edit"></i><i class="fa-solid fa-trash"></i>`;
@@ -56,28 +56,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // mark task as Complete or uncomplete
   const completeTask = (Li, complete) => {
-    if (Li.style.textDecoration === "line-through") {
-      Li.style.textDecoration = "none";
+    const taskText = Li.querySelector("span");
+    const editBtn = Li.querySelector(".fa-pen-to-square");
+    const saveBtn = Li.querySelector(".fa-floppy-disk");
+    if (taskText.style.textDecoration === "line-through") {
+      taskText.style.textDecoration = "none";
       complete.classList.add("fa-circle");
       complete.classList.remove("fa-circle-check");
+      taskText.style.color = "#fff";
+      editBtn.style.color = "#1c7ed6"; // Restore original color when unmarked
+      saveBtn.styl.color = "#4caf50";
     } else {
-      Li.style.textDecoration = "line-through";
+      taskText.style.textDecoration = "line-through";
+      taskText.style.color = "#ccc";
       complete.classList.remove("fa-circle");
       complete.classList.add("fa-circle-check");
+      editBtn.style.color = "#ccc"; // Change color when marked as complete
     }
     saveTasksToLocalStorage();
   };
 
   // Delete a task
   const deleteTask = (event) => {
-    const del = event.target.parentElement;
+    // const del = event.target.parentElement;
+    const del = event.target.closest("li");
     Tasks.removeChild(del);
     saveTasksToLocalStorage();
   };
 
-   // Edit a task
+  // Edit a task
   const editTask = (Li, editBtn) => {
-    const currentText = Li.querySelector("span").innerText;
+    const taskText = Li.querySelector("span");
+    if (taskText.style.textDecoration === "line-through") {
+      // Prevent editing if the task is marked as complete
+      return;
+    }
+    const currentText = taskText.innerText;
     let editInput = document.createElement("input");
     editInput.type = "text";
     editInput.value = currentText;
@@ -118,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("storeTasks", JSON.stringify(storeTasks));
   };
 
-   // Load tasks from local storage
+  // Load tasks from local storage
   const loadTasksToLocalStorage = () => {
     const storeTasks = JSON.parse(localStorage.getItem("storeTasks")) || [];
     storeTasks.forEach((task) => {
