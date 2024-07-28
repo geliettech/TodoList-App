@@ -87,9 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const completed = taskItem.style.textDecoration === "line-through";
       storeTasks.push({ text: taskText, completed: completed });
     });
-    // for (let i = 0; i < taskItems.length; i++) {
-    //   storeTasks.push(taskItems[i].textContent);
-    // }
     localStorage.setItem("storeTasks", JSON.stringify(storeTasks));
   };
 
