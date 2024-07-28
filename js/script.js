@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
    // disabled add button when input is not empty
   Input.onkeyup = () => {
     if (Input.value.length > 0) {
-      Submit.disabled = false;
+      addBtn.disabled = false;
     } else {
-      Submit.disabled = true;
+      addBtn.disabled = true;
     }
   };
 
