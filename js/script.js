@@ -45,13 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add event listener to delete button
     let deleteBtn = Li.querySelector(".fa-trash");
-    deleteBtn.addEventListener("click", deleteTask);
+    deleteBtn.addEventListener("click", () => deleteTask(Li));
 
     // Add event listener to edit button
     let editBtn = Li.querySelector(".fa-pen-to-square");
     editBtn.addEventListener("click", () => editTask(Li, editBtn));
-
-    saveTasksToLocalStorage();
   };
 
   // mark task as Complete or uncomplete
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       complete.classList.remove("fa-circle-check");
       taskText.style.color = "#fff";
       editBtn.style.color = "#1c7ed6"; // Restore original color when unmarked
-      saveBtn.styl.color = "#4caf50";
+      saveBtn.style.color = "#4caf50";
     } else {
       taskText.style.textDecoration = "line-through";
       taskText.style.color = "#ccc";
@@ -73,15 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
       complete.classList.add("fa-circle-check");
       editBtn.style.color = "#ccc"; // Change color when marked as complete
     }
-    saveTasksToLocalStorage();
   };
 
   // Delete a task
-  const deleteTask = (event) => {
-    // const del = event.target.parentElement;
-    const del = event.target.closest("li");
-    Tasks.removeChild(del);
-    saveTasksToLocalStorage();
+  const deleteTask = (Li) => {
+    Tasks.removeChild(Li);
   };
 
   // Edit a task
@@ -114,36 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Remove the save event listener to avoid adding multiple listeners
       editBtn.removeEventListener("click", saveEdit);
-      saveTasksToLocalStorage();
     };
 
     editBtn.addEventListener("click", saveEdit);
   };
-
-  // Store Tasks to Local Storage
-  const saveTasksToLocalStorage = () => {
-    const storeTasks = [];
-    const taskItems = Tasks.querySelectorAll("li");
-    taskItems.forEach((taskItem) => {
-      const taskText = taskItem.querySelector("span").innerText;
-      const completed = taskItem.style.textDecoration === "line-through";
-      storeTasks.push({ text: taskText, completed: completed });
-    });
-    localStorage.setItem("storeTasks", JSON.stringify(storeTasks));
-  };
-
-  // Load tasks from local storage
-  const loadTasksToLocalStorage = () => {
-    const storeTasks = JSON.parse(localStorage.getItem("storeTasks")) || [];
-    storeTasks.forEach((task) => {
-      addTask(task.text);
-      if (task.completed) {
-        const li = Tasks.querySelector("li:first-child");
-        const complete = li.querySelector(".fa-circle");
-        completeTask(li, complete);
-      }
-    });
-  };
-
-  loadTasksToLocalStorage();
 });
