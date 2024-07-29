@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listener to edit button
     let editBtn = Li.querySelector(".fa-pen-to-square");
     editBtn.addEventListener("click", () => editTask(Li, editBtn));
-    saveData()
+    saveData();
   };
 
   // mark task as Complete or uncomplete
@@ -65,22 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
       taskText.style.color = "#fff";
       editBtn.style.color = "#1c7ed6"; // Restore original color when unmarked
       saveBtn.style.color = "#4caf50";
-      saveData()
+      saveData();
     } else {
       taskText.style.textDecoration = "line-through";
       taskText.style.color = "#ccc";
       complete.classList.remove("fa-circle");
       complete.classList.add("fa-circle-check");
       editBtn.style.color = "#ccc"; // Change color when marked as complete
-     
     }
-     saveData()
+    saveData();
   };
 
   // Delete a task
   const deleteTask = (Li) => {
     Tasks.removeChild(Li);
-    saveData()
+    saveData();
   };
 
   // Edit a task
@@ -116,23 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     editBtn.addEventListener("click", saveEdit);
-   
   };
 
   //=====this function is used to save data in local storage.=====
-function saveData(){
-  //this is the medthod signature ==> localStorage.setItem(key, value)
-  localStorage.setItem("data",Tasks.innerHTML);
-}
+  function saveData() {
+    //this is the medthod signature ==> localStorage.setItem(key, value)
+    localStorage.setItem("data", Tasks.innerHTML);
+  }
 
-//-----------------------------------------------------------------------
-//====this function is used to get data from local storage.===
-function showList(){
+  //-----------------------------------------------------------------------
+  //====this function is used to get data from local storage.===
+  function showList() {
     //this is the medthod signature ==> localStorage.getItem(key);
     //that data you need to set to listCOntainer. Then you can see your works
     Tasks.innerHTML = localStorage.getItem("data") || "";
     // Reattach event listeners to tasks loaded from local storage
-    Tasks.querySelectorAll("li").forEach(Li => {
+    Tasks.querySelectorAll("li").forEach((Li) => {
       let complete = Li.querySelector(".fa-circle");
       complete.addEventListener("click", () => completeTask(Li, complete));
 
@@ -142,8 +140,8 @@ function showList(){
       let editBtn = Li.querySelector(".fa-pen-to-square");
       editBtn.addEventListener("click", () => editTask(Li, editBtn));
     });
-}
+  }
 
-//you need to call to it
-showList();
+  //you need to call to it
+  showList();
 });
