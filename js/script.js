@@ -63,9 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
       complete.classList.add("fa-circle");
       complete.classList.remove("fa-circle-check");
       taskText.style.color = "#fff";
-      saveBtn.style.color = "#4caf50";
       editBtn.style.color = "#1c7ed6"; // Restore original color when unmarked
-     
+      saveBtn.style.color = "#4caf50";
       saveData()
     } else {
       taskText.style.textDecoration = "line-through";
@@ -73,8 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
       complete.classList.remove("fa-circle");
       complete.classList.add("fa-circle-check");
       editBtn.style.color = "#ccc"; // Change color when marked as complete
-      saveData()
+     
     }
+     saveData()
   };
 
   // Delete a task
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     editBtn.addEventListener("click", saveEdit);
+   
   };
 
   //=====this function is used to save data in local storage.=====
@@ -126,27 +127,23 @@ function saveData(){
 
 //-----------------------------------------------------------------------
 //====this function is used to get data from local storage.===
- // Function to get data from local storage and display
- function showList() {
-  const data = localStorage.getItem("data");
-  if (data) {
-    Tasks.innerHTML = data;
-    
-    // Reattach event listeners to each task item after loading from local storage
-    const listItems = Tasks.querySelectorAll("li");
-    listItems.forEach((Li) => {
-      let complete = Li.querySelector(".fa-circle, .fa-circle-check");
+function showList(){
+    //this is the medthod signature ==> localStorage.getItem(key);
+    //that data you need to set to listCOntainer. Then you can see your works
+    Tasks.innerHTML = localStorage.getItem("data") || "";
+    // Reattach event listeners to tasks loaded from local storage
+    Tasks.querySelectorAll("li").forEach(Li => {
+      let complete = Li.querySelector(".fa-circle");
       complete.addEventListener("click", () => completeTask(Li, complete));
 
       let deleteBtn = Li.querySelector(".fa-trash");
       deleteBtn.addEventListener("click", () => deleteTask(Li));
 
-      let editBtn = Li.querySelector(".fa-pen-to-square, .fa-floppy-disk");
+      let editBtn = Li.querySelector(".fa-pen-to-square");
       editBtn.addEventListener("click", () => editTask(Li, editBtn));
     });
-  }
 }
 
-// Call showList to display tasks from local storage on page load
+//you need to call to it
 showList();
 });
