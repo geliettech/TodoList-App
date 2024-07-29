@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       addBtn.disabled = true;
     }
   });
+
   // Handle form submission
   Form.addEventListener("submit", (e) => {
     e.preventDefault(); // Prevent page reload
@@ -57,12 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const completeTask = (li) => {
     const completeTaskText = li.querySelector("span");
     completeTaskText.classList.toggle("completed");
-    // complete.classList.toggle("fa-circle");
-    // complete.classList.toggle("fa-circle-check");
     const completeIcon = li.querySelector(".complete");
     completeIcon.classList.toggle("fa-circle");
     completeIcon.classList.toggle("fa-circle-check");
-
+    if (completeTaskText.classList.contains("completed")) {
+      completeTaskText.style.color = "#ccc";
+      completeTaskText.style.textDecoration = "line-through";
+    }else{
+      completeTaskText.style.color = "#fff";
+      completeTaskText.style.textDecoration = "none";
+    };
     saveData();
   };
 
@@ -82,16 +87,20 @@ document.addEventListener("DOMContentLoaded", function () {
     editInput.value = editTaskText.textContent;
     editTaskText.replaceWith(editInput);
 
+     // Replace the edit icon with a save icon
     const editIcon = li.querySelector(".edit");
     editIcon.classList.toggle("fa-pen-to-square");
     editIcon.classList.toggle("fa-floppy-disk");
 
+     // Save the edited text
     const saveEdit = () => {
       const newText = editInput.value;
       if (newText) {
         const newSpan = document.createElement("span");
         newSpan.textContent = newText;
         editInput.replaceWith(newSpan);
+
+        // Restore the edit icon
         editIcon.classList.toggle("fa-floppy-disk");
         editIcon.classList.toggle("fa-pen-to-square");
 
