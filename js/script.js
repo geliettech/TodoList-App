@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listener to edit button
     let editBtn = Li.querySelector(".fa-pen-to-square");
     editBtn.addEventListener("click", () => editTask(Li, editBtn));
+    saveData()
   };
 
   // mark task as Complete or uncomplete
@@ -64,18 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
       taskText.style.color = "#fff";
       editBtn.style.color = "#1c7ed6"; // Restore original color when unmarked
       saveBtn.style.color = "#4caf50";
+      saveData()
     } else {
       taskText.style.textDecoration = "line-through";
       taskText.style.color = "#ccc";
       complete.classList.remove("fa-circle");
       complete.classList.add("fa-circle-check");
       editBtn.style.color = "#ccc"; // Change color when marked as complete
+      saveData()
     }
   };
 
   // Delete a task
   const deleteTask = (Li) => {
     Tasks.removeChild(Li);
+    saveData()
   };
 
   // Edit a task
@@ -112,4 +116,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     editBtn.addEventListener("click", saveEdit);
   };
+
+  //=====this function is used to save data in local storage.=====
+function saveData(){
+  //this is the medthod signature ==> localStorage.setItem(key, value)
+  localStorage.setItem("data",Tasks.innerHTML);
+}
+
+//-----------------------------------------------------------------------
+//====this function is used to get data from local storage.===
+ // Function to get data from local storage and display
+ function showList() {
+  const data = localStorage.getItem("data");
+  if (data) {
+    Tasks.innerHTML = data;
+    
+    // Reattach event listeners to each task item after loading from local storage
+    const listItems = Tasks.querySelectorAll("li");
+    listItems.forEach((Li) => {
+      let complete = Li.querySelector(".fa-circle, .fa-circle-check");
+      complete.addEventListener("click", () => completeTask(Li, complete));
+
+      let deleteBtn = Li.querySelector(".fa-trash");
+      deleteBtn.addEventListener("click", () => deleteTask(Li));
+
+      let editBtn = Li.querySelector(".fa-pen-to-square, .fa-floppy-disk");
+      editBtn.addEventListener("click", () => editTask(Li, editBtn));
+    });
+  }
+}
+
+// Call showList to display tasks from local storage on page load
+showList();
 });
