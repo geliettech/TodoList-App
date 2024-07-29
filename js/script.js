@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
       complete.classList.remove("fa-circle-check");
       taskText.style.color = "#fff";
       saveBtn.style.color = "#4caf50";
-      
       editBtn.style.color = "#1c7ed6"; // Restore original color when unmarked
      
       saveData()
