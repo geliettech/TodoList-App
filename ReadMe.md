@@ -36,7 +36,7 @@ This ToDo app allows users to add, edit, complete, and delete tasks. Tasks are s
 
 ## Demo
 
-You can view the live demo of this project [here](https://oge-dev.github.io/TodoList-App/).
+You can view the live demo of this project [here](https://task-manager-byoge.netlify.app/).
 
 ## Some design inspirations
 
